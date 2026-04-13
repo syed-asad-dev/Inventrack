@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const unitSchema = new mongoose.Schema({
   recordId: {
@@ -24,4 +24,4 @@ const unitSchema = new mongoose.Schema({
 // We must check if it already exists to prevent OverwriteModelError.
 const Unit = mongoose.models.Unit || mongoose.model('Unit', unitSchema);
 
-export default Unit;
+module.exports = Unit;

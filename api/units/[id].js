@@ -1,7 +1,7 @@
-import connectToDatabase from '../utils/db.js';
-import Unit from '../models/Unit.js';
+const connectToDatabase = require('../utils/db.js');
+const Unit = require('../models/Unit.js');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // CORS caching headers
   res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader('Access-Control-Allow-Origin', '*')
