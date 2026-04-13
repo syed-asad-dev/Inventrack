@@ -1,8 +1,8 @@
-const connectToDatabase = require('../utils/db.js');
-const Unit = require('../models/Unit.js');
+import connectToDatabase from '../utils/db.js';
+import Unit from '../models/Unit.js';
 
 export default async function handler(req, res) {
-  // CORS caching headers as requested
+  // CORS caching headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -39,7 +39,6 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'DELETE') {
-      // Mock validation logic for later
       const deletedUnit = await Unit.findByIdAndDelete(id);
       
       if (!deletedUnit) {
@@ -55,6 +54,6 @@ export default async function handler(req, res) {
     if (error.code === 11000) {
       return res.status(400).json({ error: 'Unit name already exists' });
     }
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 }

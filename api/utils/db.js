@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const uri = process.env.MONGODB_URI;
 
@@ -8,7 +8,7 @@ if (!cached) {
   cached = global.mongoose = { conn: null, promise: null };
 }
 
-async function connectToDatabase() {
+export default async function connectToDatabase() {
   if (!uri) {
     throw new Error('Please define the MONGODB_URI environment variable');
   }
@@ -36,5 +36,3 @@ async function connectToDatabase() {
 
   return cached.conn;
 }
-
-module.exports = connectToDatabase;
