@@ -1,3 +1,17 @@
+# Dependencies
+node_modules/
+
+# Production
+dist/
+dist-ssr
+build/
+
+# Environment Variables
+.env
+.env.local
+.env.production
+.env.development
+
 # Logs
 logs
 *.log
@@ -7,16 +21,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# System Files
+.DS_Store
+Thumbs.db
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
